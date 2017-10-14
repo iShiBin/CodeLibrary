@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="algo"/>
+	<classpathentry kind="src" path="leetcode"/>
+	<classpathentry kind="src" path="bittiger"/>
+	<classpathentry kind="src" path="data"/>
+	<classpathentry kind="src" path="ctci"/>
+	<classpathentry kind="src" path="lab"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
