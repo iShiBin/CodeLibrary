@@ -549,10 +549,47 @@ public class BinaryTree extends TreeNode {
       return ;
     }
     
-    //create a new list for each sub-path
+    //create a new list for each sub-path.
     if(root.left!=null) getPaths(root.left, new LinkedList<TreeNode>(path), pathList);
     if(root.right!=null) getPaths(root.right, new LinkedList<TreeNode>(path), pathList);
     
+  }
+  
+  /**
+   * Another way to get the path of a tree, which just use one method.
+   * The efficiency is however not high.
+   * <link> https://leetcode.com/problems/path-sum-ii/description/
+   * @param root
+   * @return
+   */
+  public static List<List<TreeNode>> getPaths2(TreeNode root){
+    List<List<TreeNode>> list=new LinkedList<>();
+    if(root==null) return list;
+    else if(root.left==null && root.right==null){
+      List<TreeNode> l=new LinkedList<>();
+      l.add(root);
+      list.add(l);
+    } else {
+      List<List<TreeNode>> left= getPaths2(root.left);
+      List<List<TreeNode>> right= getPaths2(root.right);
+      
+      for(List<TreeNode> l: left){
+        l.add(0, root);
+        list.add(l);
+      }
+      
+      for(List<TreeNode> l: right){
+        l.add(0, root);
+        list.add(l);
+      }
+    }
+    
+    return list;
+    
+  }
+  
+  public static List<List<TreeNode>> getPathsBackTrack(TreeNode root){
+    return null;
   }
   
   /**
@@ -672,4 +709,14 @@ public class BinaryTree extends TreeNode {
     }
     return n+sumOfLeftLeaves(root.left)+sumOfLeftLeaves(root.right);
   }
+  
+  public static int sumOfLeaves(TreeNode root){
+    if(root==null){
+        return 0;
+    }else if(root.left==null && root.right==null){
+        return root.val;
+    }else{
+        return sumOfLeaves(root.left)+sumOfLeaves(root.right);
+    }
+}
 }
