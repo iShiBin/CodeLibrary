@@ -168,8 +168,11 @@ public class BinaryTreeUnitTest {
     System.out.println("getPathsTest");
     list.stream().forEach(l->System.out.println(l));
     this.printSeperateLine();
+    
+    List<List<TreeNode>> list2 = BinaryTree.getPaths2(root);
+    list2.stream().forEach(l->System.out.println(l));
+    this.printSeperateLine();
   }
-  
   @Test
   public void getVerticalSumTest(){
     TreeNode root=BinaryTree.build("[1,2,3,6,7,4,5]");
@@ -270,6 +273,15 @@ public class BinaryTreeUnitTest {
     list=BinaryTree.traversePostorder(root);
     System.out.println(list);
     this.printSeperateLine();
+  }
+  
+  @Test
+  public void sumOfLeavesTese(){
+   TreeNode root=null;
+   
+   System.out.println("Sum:"+BinaryTree.sumOfLeaves(root));
+    
+    
   }
   /******************************************************/
   
