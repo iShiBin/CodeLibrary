@@ -1,6 +1,5 @@
 import java.util.*;
 
-import tree.*;
 
 public class Solution {
   public int[] solution(int k, int[] A) {
