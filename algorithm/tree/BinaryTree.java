@@ -367,7 +367,19 @@ public class BinaryTree extends TreeNode {
         BinaryTree.isIdentical(root1.left, root2.left) &&
         BinaryTree.isIdentical(root1.right, root2.right);
   }
-
+  /**
+   * Judge whether two trees have the same data structure.
+   * @param root
+   * @param another
+   * @return
+   */
+  public static boolean hasSameStructure(TreeNode root, TreeNode another){
+	  if(root == another || (root==null && another==null) ) return true;
+	  else if (root==null || another ==null) return false;
+	  else return hasSameStructure(root.left, another.left)
+			      && hasSameStructure(root.right, root.right);
+  }
+  
   public static void simplePrint(TreeNode root) {
     simplePrint(root, 0);
   }
