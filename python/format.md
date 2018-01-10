@@ -26,7 +26,7 @@ Return 3. The paths that sum to 8 are:
 3. -3 -> 11
 </pre>
 
-### Solution 1: Time Limit Exceed on case 126/126
+### Solution 1: Brute force. O(n^2)
 ```python
 class Solution:
     counter = 0
@@ -48,3 +48,30 @@ class Solution:
             self.traverse(root.left, sum-root.val)
             self.traverse(root.right, sum-root.val)
 ```
+Note: Second submit succeeded. So the running time in leetcode varies.
+
+### Solution 2: One time pass using collections.defaultdict(). O(n)
+```python
+class Solution:
+    def pathSum(self, root, target):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: int
+        """
+        def traverse(root, running_sum):
+    
+            if not root:
+                return 0
+            count = 0
+            running_sum += root.val
+            count += d[running_sum - target]
+            d[running_sum] +=1 
+            count += traverse(root.left, running_sum) + traverse(root.right, running_sum)
+            d[running_sum] -=1 
+            return count
+        d = collections.defaultdict(int)
+        d[0] = 1
+        return traverse(root, 0)
+```
+
