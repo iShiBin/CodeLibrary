@@ -38,8 +38,8 @@ def change_exif_date(file, date_delta):
     photo.save(new_file , "jpeg", exif=exif_bytes, quality=100)
 
 
-photo_dir = '/Volumes/SONY/Olympic/'
+photo_dir = '/Users/binshi/Downloads/elk/'
 for _, _, files in os.walk(photo_dir):
     for f in files:
-        if f.endswith('jpg') or f.endswith('JPG') or f.endswith('jpeg') or f.endswith('JPEG'): continue
-        change_exif_date(photo_dir + f, date_delta)
+        if f.endswith('jpg') or f.endswith('JPG') or f.endswith('jpeg') or f.endswith('JPEG'):
+            change_exif_date(photo_dir + f, date_delta)
